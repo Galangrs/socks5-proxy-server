@@ -1,0 +1,29 @@
+{
+  "name": "socks5-proxy-server",
+  "version": "1.0.0",
+  "description": "create local socks5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socks5",
+    "proxy"
+  ],
+  "author": "salantino",
+  "license": "ISC",
+  "dependencies": {
+    "net": "^1.0.2",
+    "socks": "^2.8.4",
+    "socks5-proxy-server": "^1.0.0",
+    "socksv5": "^0.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galangrs/socks5-proxy-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Galangrs/socks5-proxy-server/issues"
+  },
+  "homepage": "https://github.com/Galangrs/socks5-proxy-server#readme"
+}
