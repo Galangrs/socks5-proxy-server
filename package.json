@@ -1,6 +1,6 @@
 {
   "name": "socks5-proxy-server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "create local socks5",
   "main": "index.js",
   "scripts": {
