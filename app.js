@@ -77,7 +77,7 @@ async function app(config = {}, proxy = null) {
     validateConfig(config);
     validateProxy(proxy);
     
-    const { port, user, password } = config;
+    const { port = null, user = null, password = null } = config;
     let server;
 
     try {
@@ -122,7 +122,11 @@ async function app(config = {}, proxy = null) {
         });
 
         server.listen(localPort, () => {
-            console.log(`Socks5 server running on localhost:${localPort}, user:${user || "none"}, password:${password || "none"}`);
+            console.log(
+                `Socks5 server running on localhost:${localPort}, ${
+                  user && password ? `user:${user}, password:${password}` : "no authentication"
+                }`
+            );
         });
 
         server.on("error", (err) => {
@@ -131,12 +135,12 @@ async function app(config = {}, proxy = null) {
 
         server.useAuth(user && password ? socks.auth.UserPassword((usr, pwd, cb) => cb(usr === user && pwd === password)) : socks.auth.None());
 
-        return { server, localPort };
+        return { server, localPort, user, password };
     } catch (error) {
         if (server) {
             server.close(() => {});
         }
-        return { server: null, localPort: null };
+        return { server: null, localPort: null, user: null, password: null };
     }
 }
 

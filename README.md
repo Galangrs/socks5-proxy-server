@@ -24,20 +24,50 @@ npm install socks5-proxy-server
 ## Usage
 
 ```javascript
-const app = require("./socks5-proxy");
-
 (async () => {
     const proxyServer = await app({ port: 1080, user: "test", password: "pass" });
-    console.log(`Proxy running on port ${proxyServer.localPort}`);
+    console.log(`Socks5 server running on localhost:${proxyServer.localPort}, user:${proxyServer.user || "no authenticasion"}, password:${proxyServer.password || "no authenticasion"}`);
+})();
+```
+
+## Usage Without Authenticasion
+```javascript
+(async () => {
+    const proxyServer = await app({ port: 1080 });
+    console.log(
+        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+            proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
+        }`
+    );
+})();
+```
+
+## Usage With Random Port
+```javascript
+(async () => {
+    const proxyServer = await app({ user: "test", password: "pass" });
+    console.log(
+        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+            proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
+        }`
+    );
 })();
 ```
 
 ## Using an Upstream Proxy
 ```javascript
-const proxyServer = await app(
-    { port: 1080, user: "test", password: "pass" },
-    { hostProxy: "172.31.24.202", portProxy: 2001, userProxy: "gemink", passwordProxy: "proxys" }
-);
+(async () => {
+    const proxyServer = await app(
+        { port: 1080, user: "test", password: "pass" },
+        { hostProxy: "172.31.24.202", portProxy: 2001, userProxy: "gemink", passwordProxy: "proxys" }
+    );
+    console.log(
+        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+            proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
+        }`
+    );
+})();
+
 ```
 
 ## Stopping the Proxy Server
@@ -84,7 +114,8 @@ Validates the proxy settings.
 Starts the SOCKS5 proxy server.
 
 #### Response:
-- `{ server: Object, localPort: number }` if successful.
-- `{ server: null, localPort: null }` if an error occurs.
+- `{ server: Object, localPort: number, user: null, password: null }` if successful.
+- `{ server: Object, localPort: number, user: string, password: string }` if successful.
+- `{ server: null, localPort: null, user: null, password: null }` if an error occurs.
 
 ---
