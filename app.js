@@ -137,8 +137,11 @@ async function app(config = {}, proxy = null) {
 
         return { server, localPort, user, password };
     } catch (error) {
+        console.error("Error : " + error)
         if (server) {
-            server.close(() => {});
+            server.close(() => {
+                console.log("Application socks5 stoped")
+            });
         }
         return { server: null, localPort: null, user: null, password: null };
     }

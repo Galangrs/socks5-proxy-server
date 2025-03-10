@@ -26,7 +26,11 @@ npm install socks5-proxy-server
 ```javascript
 (async () => {
     const proxyServer = await app({ port: 1080, user: "test", password: "pass" });
-    console.log(`Socks5 server running on localhost:${proxyServer.localPort}, user:${proxyServer.user || "no authenticasion"}, password:${proxyServer.password || "no authenticasion"}`);
+    console.log(
+        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+            proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
+        }`
+    );
 })();
 ```
 
