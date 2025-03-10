@@ -135,15 +135,15 @@ async function app(config = {}, proxy = null) {
 
         server.useAuth(user && password ? socks.auth.UserPassword((usr, pwd, cb) => cb(usr === user && pwd === password)) : socks.auth.None());
 
-        return { server, localPort, user, password };
+        return { server, port:localPort, user, password };
     } catch (error) {
         console.error("Error : " + error)
         if (server) {
             server.close(() => {
-                console.log("Application socks5 stoped")
+                console.log("Application socks5 stopped")
             });
         }
-        return { server: null, localPort: null, user: null, password: null };
+        return { server: null, port: null, user: null, password: null };
     }
 }
 

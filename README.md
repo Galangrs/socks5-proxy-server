@@ -27,7 +27,7 @@ npm install socks5-proxy-server
 (async () => {
     const proxyServer = await app({ port: 1080, user: "test", password: "pass" });
     console.log(
-        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+        `Socks5 server running on localhost:${proxyServer.port}, ${
             proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
         }`
     );
@@ -39,7 +39,7 @@ npm install socks5-proxy-server
 (async () => {
     const proxyServer = await app({ port: 1080 });
     console.log(
-        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+        `Socks5 server running on localhost:${proxyServer.port}, ${
             proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
         }`
     );
@@ -51,7 +51,7 @@ npm install socks5-proxy-server
 (async () => {
     const proxyServer = await app({ user: "test", password: "pass" });
     console.log(
-        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+        `Socks5 server running on localhost:${proxyServer.port}, ${
             proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
         }`
     );
@@ -66,7 +66,7 @@ npm install socks5-proxy-server
         { hostProxy: "172.31.24.202", portProxy: 2001, userProxy: "gemink", passwordProxy: "proxys" }
     );
     console.log(
-        `Socks5 server running on localhost:${proxyServer.localPort}, ${
+        `Socks5 server running on localhost:${proxyServer.port}, ${
             proxyServer.user && proxyServer.password ? `user:${proxyServer.user}, password:${proxyServer.password}` : "no authentication"
         }`
     );
@@ -118,8 +118,8 @@ Validates the proxy settings.
 Starts the SOCKS5 proxy server.
 
 #### Response:
-- `{ server: Object, localPort: number, user: null, password: null }` if successful.
-- `{ server: Object, localPort: number, user: string, password: string }` if successful.
-- `{ server: null, localPort: null, user: null, password: null }` if an error occurs.
+- `{ server: Object, port: number, user: null, password: null }` if successful.
+- `{ server: Object, port: number, user: string, password: string }` if successful.
+- `{ server: null, port: null, user: null, password: null }` if an error occurs.
 
 ---
