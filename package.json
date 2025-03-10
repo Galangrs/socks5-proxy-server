@@ -1,6 +1,6 @@
 {
   "name": "socks5-proxy-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create local socks5",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/Galangrs/socks5-proxy-server/issues"
   },
-  "homepage": "https://github.com/Galangrs/socks5-proxy-server#readme"
+  "homepage": "https://github.com/Galangrs/socks5-proxy-server#readme",
+  "devDependencies": {}
 }
