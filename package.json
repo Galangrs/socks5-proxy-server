@@ -13,6 +13,8 @@
   "author": "salantino",
   "license": "ISC",
   "dependencies": {
+    "ipv4": "^1.0.4",
+    "ipv6": "^3.1.3",
     "net": "^1.0.2",
     "socks": "^2.8.4",
     "socksv5": "^0.0.4"

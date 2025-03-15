@@ -8,6 +8,8 @@
  * - socksv5
  * - socks
  * - net
+ * - ipv6
+ * - ipv4
  * 
  * Functions:
  * - findFreePort(): Finds an available port.
@@ -72,9 +74,10 @@ function validateProxy(proxy) {
  * @param {string} [config.user] - Username for authentication (optional).
  * @param {string} [config.password] - Password for authentication (optional).
  * @param {Object} proxy - Upstream proxy settings (optional).
- * @returns {Promise<{server: Object, localPort: number}>} Proxy server instance and port.
+ * @returns {Promise<{server: Object, port: number, user: string, password: string}>} Proxy server instance and port.
  */
-async function app(config = {}, proxy = null) {
+
+module.exports = async (config = {}, proxy = null) => {
     validateConfig(config);
     validateProxy(proxy);
     
@@ -146,18 +149,13 @@ async function app(config = {}, proxy = null) {
         }
         return { server: null, port: null, user: null, password: null };
     }
-}
-
-module.exports = app;
-
+};
 
 // Global unhandled error handler for the process
 process.on('uncaughtException', (err) => {
     console.error("Unhandled exception:", err);
-    performAdditionalAction("Unhandled exception in process.");
 });
 
 process.on('unhandledRejection', (reason, promise) => {
     console.error("Unhandled rejection:", reason);
-    performAdditionalAction("Unhandled rejection in process.");
 });

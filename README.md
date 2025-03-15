@@ -12,11 +12,10 @@ This module provides a SOCKS5 proxy server with optional authentication and supp
 - `socksv5`
 - `socks`
 - `net`
+- `ipv6`
+- `ipv4`
 
 ## Installation
-```sh
-npm install socksv5 socks net
-```
 ```sh
 npm install socks5-proxy-server
 ```
