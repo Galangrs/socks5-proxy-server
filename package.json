@@ -15,7 +15,6 @@
   "dependencies": {
     "net": "^1.0.2",
     "socks": "^2.8.4",
-    "socks5-proxy-server": "^1.0.0",
     "socksv5": "^0.0.4"
   },
   "repository": {
@@ -25,6 +24,5 @@
   "bugs": {
     "url": "https://github.com/Galangrs/socks5-proxy-server/issues"
   },
-  "homepage": "https://github.com/Galangrs/socks5-proxy-server#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/Galangrs/socks5-proxy-server#readme"
 }

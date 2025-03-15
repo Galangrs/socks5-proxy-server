@@ -16,8 +16,9 @@
  * - app(config, proxy): Starts the SOCKS5 proxy server.
  * 
  * Response:
- * - { server: Object, localPort: number } if successful.
- * - { server: null, localPort: null } if an error occurs.
+ * - { server: Object, port: number, user: null, password: null } if successful.
+ * - { server: Object, port: number, user: string, password: string } if successful.
+ * - { server: null, port: null, user: null, password: null } if an error occurs.
  */
 
 const socks = require("socksv5");
